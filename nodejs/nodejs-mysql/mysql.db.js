@@ -7,7 +7,13 @@ var connection = mysql.createConnection({
 });
  
 connection.connect(function(err) {
-  if (err) throw err;
  
-  console.log("Database Connected!");
+  if (err) throw err;
+  console.log("Connected Database");
+ 
+  connection.query("CREATE DATABASE database_name", function (err, result) {
+    if (err) throw err;
+    console.log("Database created");
+  });
+ 
 });
